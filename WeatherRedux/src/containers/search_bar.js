@@ -9,18 +9,23 @@ export default class SearchBar extends Component {
     }
     
     onInputChange(event) {
-        console.log(event.target.value);
         this.setState( {term: event.target.value });
+    }
+    
+    onFormSubmit(event) {
+        event.preventDefault();
+        
+        //make ajax call to weather?
     }
     
     render(){
         return (
-            <form className ="input-group">
+            <form onSubmit={this.onFormSubmit} className ="input-group">
                 <input
-                placeholder="Get a five-day forecast in your favorite city"
-                className="form-control"
-                value={this.state.term}
-                onChange={this.onInputChange}/>
+                    placeholder="Get a five-day forecast in your favorite city"
+                    className="form-control"
+                    value={this.state.term}
+                    onChange={this.onInputChange}/>
                 <span className="input-group-btn">
                     <button type="submit" className="btn btn-secondary">Submit</button>
                 </span>
