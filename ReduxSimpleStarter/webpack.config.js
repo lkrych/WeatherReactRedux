@@ -21,6 +21,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    public: process.env.C9_HOSTNAME //critical for new webpack security update
   }
 };
